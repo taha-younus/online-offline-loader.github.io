@@ -33,6 +33,7 @@
     position: absolute;
     bottom: 0;
     display: none;
+    z-index: 100;
 }
 
 .internet-offline p{
@@ -51,6 +52,7 @@
     position: absolute;
     bottom: 0;
     display: none;
+    z-index: 100;
 }
 
 .internet-online p{
@@ -61,7 +63,27 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}    </style>
+}    
+
+.msg {
+    padding: 12px 10px;
+    position: absolute;
+}
+
+.msg span{
+    font-size: 20px;
+    font-weight: bold;
+}
+.msg ul{
+    padding: 10px;
+    font-size: 18px;
+    list-style: upper-alpha;
+}
+.msg ul li{
+    list-style:circle;
+}
+
+</style>
 </head>
 <body onoffline="show()" ononline="hide()">
     
@@ -74,16 +96,36 @@
     <div class="internet-online" id="internet-online">
         <p>Back Online</p>
     </div>
+<div class="msg" id="msg-box">
+    <h1>This Website is About Loader :</h1>
+    <p><span>Description :</span>
+        <br>
+        <ul>
+            <li>When Wifi/Internet Goes offline Loader Will Be Show.</li>
+            <li>Also When Wifi/Internet Goes offline there Message Appear that You are Offline.</li>
+            <li>When Wifi/Internet Back to Online The Loader Will Disappear.</li>
+            <li>Also When Wifi/Internet Back to Online The Message appear which show to back To Online.
+                <br>
+                For 3 seconds of period of time after that this will Disappear.
+            </li>
+
+        </ul>
+    </p>
+</div>
     <script>
         const myLoader = document.getElementById('loader');
         const WifiOnn = document.getElementById('internet-online');
         const WifiOff = document.getElementById('internet-offline');
+        const msg = document.getElementById('msg-box');
 
 
         function show(){
             myLoader.style.display = "block";
             WifiOnn.style.display = "none";
             WifiOff.style.display = "block";
+            msg.style.zIndex = "-5";
+            msg.style.top = "0";
+            msg.style.opacity = "0.6";
         }
 
         // setTimeout(
@@ -97,7 +139,7 @@
             setTimeout(() => {
         WifiOnn.style.display = "none";
     }, 3000);
-            myLoader.style.visibility = "hidden";
+            myLoader.style.display = "none";
             WifiOff.style.display = "none";  
         }
 
