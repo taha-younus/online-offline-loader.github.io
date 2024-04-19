@@ -93,9 +93,12 @@
         // )
 
         function hide(){
-            myLoader.style.visibility = "hidden";
             WifiOnn.style.display = "block";
-            WifiOff.style.display = "none";
+            setTimeout(() => {
+        WifiOnn.style.display = "none";
+    }, 3000);
+            myLoader.style.visibility = "hidden";
+            WifiOff.style.display = "none";  
         }
 
 
