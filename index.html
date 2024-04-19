@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <center>
+        <div id="box"></div>
+    </center>
+
+    <button onmouseleave="show()">Click here TO see Msg</button>
+    <button onmouseleave="hide()">Click here TO Remove</button>
+  <script>
+    const Box = document.getElementById('box'); 
+    function show(){
+        Box.style.height = prompt("Enter Height");
+        Box.style.width = prompt("Enter Width");
+        Box.style.backgroundColor = prompt("Enter bg color");
+        Box.style.borderRadius = prompt("Enter Radius");
+    }
+  </script>
+</body>
+</html>

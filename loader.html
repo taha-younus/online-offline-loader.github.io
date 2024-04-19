@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 6px solid rgba(126, 126, 126, 0.534);
+  border-top-color: #007AFF; /* Change color as needed */
+  animation: spin .5s linear infinite;
+  margin: 23% auto;
+  display: none;
+}
+
+.internet-offline{
+    width: 100%;
+    height: 25px;
+    background-color: rgb(77, 77, 77);
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    bottom: 0;
+    display: none;
+}
+
+.internet-offline p{
+   position: relative;
+   left: 45%;
+   top: 6%;
+}
+
+
+.internet-online{
+    width: 100%;
+    height: 25px;
+    background-color: rgb(0, 117, 0);
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    bottom: 0;
+    display: none;
+}
+
+.internet-online p{
+   position: relative;
+   left: 45%;
+   top: 6%;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}    </style>
+</head>
+<body onoffline="show()" ononline="hide()">
+    
+    <div class="spinner" id="loader"></div>
+
+    <div class="internet-offline" id="internet-offline">
+        <p>No internet connection</p>
+    </div>
+
+    <div class="internet-online" id="internet-online">
+        <p>Back Online</p>
+    </div>
+    <script>
+        const myLoader = document.getElementById('loader');
+        const WifiOnn = document.getElementById('internet-online');
+        const WifiOff = document.getElementById('internet-offline');
+
+
+        function show(){
+            myLoader.style.display = "block";
+            WifiOnn.style.display = "none";
+            WifiOff.style.display = "block";
+        }
+
+        // setTimeout(
+        //     () => {
+        //         myLoader.style.display = "none";
+        //     },2000
+        // )
+
+        function hide(){
+            myLoader.style.visibility = "hidden";
+            WifiOnn.style.display = "block";
+            WifiOff.style.display = "none";
+        }
+
+
+    </script>
+</body>
+</html>
